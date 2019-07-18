@@ -1,11 +1,41 @@
 # Zookeeper
 
+快速故障恢复
+
+集群 
+
+一致性 
+
+无主 脑裂
+
+主从架构
+读写分离 从
+
+对外提供服务
+对内协调
 
 
-服务注册与发现
-http://www.techweb.com.cn/network/hardware/2015-12-25/2246973.shtml
+# 特点
+
+最终一致性
 
 
 
-Curator
-https://www.jianshu.com/p/70151fc0ef5d
+对外提供服务
+
+    主从架构
+    主节点接受读写请求
+    从节点接受读请求，如果是读请求会转发给主节点
+    
+    询问全部子节点
+        ack 过半
+    通知全部子节点
+    
+    消息队列
+        必须消费
+        统一视图
+
+    zkfc
+        register 抢占znode节点
+        watchevent 监控 时间 通知 其他
+        
